@@ -1,0 +1,128 @@
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    background-color: #1e1e1e;
+    color: #e8e8e8;
+    font-family: 'DM Mono', monospace;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+
+    /* hide scrollbars */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    
+}
+
+#terminal {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+#output-text {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    margin: 0;
+    font-family: 'DM Mono', monospace;
+}
+
+#input {
+    display: flex;
+    margin-top: 0px;
+}
+
+.command-line {
+    line-height: 20px;
+}
+
+.prompt {
+    color: #98c379;
+}
+
+.promptuser {
+    color: #61afef;
+}
+
+.promptpath {
+    color: #ff98a1;
+}
+
+#command-input {
+    flex-grow: 1;
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    outline: none;
+    font-family: 'DM Mono', monospace;
+    font-size: 16px;
+    line-height: 20px; 
+    padding: 0 0 15px 0; /* 15px bottom bumper */
+}
+
+#editor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: #282828;
+    color: #e8e8e8;
+    font-family: 'DM Mono', monospace;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    z-index: 100;
+    /* hidden by default */
+    display: none;
+}
+
+#editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #757575;
+}
+
+#editor-filename {
+    color: #82aaff;
+}
+
+#editor-content {
+    display: flex;
+    height: calc(100% - 40px); /* minus editor header height */
+}
+
+#editor-linenumbers {
+    width: 50px;
+    background-color: #212121;
+    color: #757575;
+    overflow: hidden;
+    padding: 8px 0;
+    text-align: right;
+}
+
+#editor-textarea {
+    flex-grow: 1;
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    outline: none;
+    font-family: 'DM Mono', monospace;
+    font-size: 16px;
+    resize: none;
+    padding: 8px;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: auto;
+}
+
+

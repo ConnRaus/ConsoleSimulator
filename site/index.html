@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Web Terminal</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <script defer src="https://cdn.jsdelivr.net/pyodide/v0.23.2/full/pyodide.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="terminal">
+        <div id="output">
+            <pre id="output-text" spellcheck="false"></pre>
+        </div>
+        <div id="input">
+            <span id="user-span" class="promptuser"></span>:
+            <span id="path-span" class="promptpath">~</span>
+            <span id="prompt-span" class="prompt">$ </span> 
+            <input type="text" id="command-input" spellcheck="false" autocapitalize="none" autofocus>
+        </div>
+    </div>
+
+    <!-- Create full screen editor area for when editing text -->
+    <div id="editor">
+        <div id="editor-header">
+            <span id="editor-filename"></span>
+        </div>
+        <div id="editor-content">
+            <div id="editor-linenumbers"></div>
+            <textarea id="editor-textarea" spellcheck="false"></textarea>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
