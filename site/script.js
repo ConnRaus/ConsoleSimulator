@@ -1493,6 +1493,7 @@ function enableEditor(file) {
     if (currentDirectory.children[file]) {
         editorContainer.style.display = 'block';
         editorTextArea.value = currentDirectory.children[file].content;
+        editorTextArea.style.whiteSpace = 'pre-wrap';
         editorFileName.textContent = file;
 
         // Create span elements for the clickable commands
