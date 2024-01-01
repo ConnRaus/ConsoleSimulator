@@ -43,8 +43,8 @@ A few default aliases are set up for ease of use, which can be changed as needed
 - `..`: Alias for `cd ..`.
 - `vi`, `vim`, `nano`, `code`: Aliases for `edit`.
 - `view` and `show`: Aliases for `viewimg`.
-- `setname`, `setusername`, `changeuser`, `changeusername`: Aliases for `setuser`.
-- `dl`: Alias for `download`.
+- `setname`, `setusername`, `changeuser`, `changeusername`, `changename`: Aliases for `setuser`.
+- `dl`: Alias for `download`.]
 
 ### Limitations
 
@@ -59,7 +59,7 @@ ConsoleSimulator uses a specially set-up version of Pyodide to run Python from "
 
 - Python files only print after execution, so ensure your code is working to prevent freezing the webpage.
 - Importing unavailable libraries will freeze the application.
-- Due to Pyodide's input handler, input works but lacks a prompt, and previous print statements aren't visible until the program ends. 
+- Due to Pyodide's input handler, input works but lacks a prompt message, and previous print statements aren't visible until the program ends. 
 
 ### Supported Libraries
 
