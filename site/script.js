@@ -1571,6 +1571,7 @@ function disableEditor() {
     editorFileName.textContent = '';
     editorHeader.textContent = '';
     inputElement.focus();
+    editorTextArea.style.whiteSpace = 'normal';
 }
 
 function exitEditMode() {
