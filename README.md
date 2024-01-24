@@ -67,6 +67,7 @@ Currently supported libraries include:
 
 - matplotlib
 - numpy
+- sympy
 - pandas
 - scipy
 - scikit-learn
