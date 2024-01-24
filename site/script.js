@@ -301,9 +301,6 @@ function processCommand(command) {
             localStorage.setItem('autosave', autosave);
             appendToOutput(`Autosave is now ${autosave ? 'ON' : 'OFF'}`);
             break;
-        case 'wasm':
-            wasmCommand(flags, args);
-            break;
         case 'copyfilesystem':
             navigator.clipboard.writeText(JSON.stringify(cloneFileSystemWithoutParents(fileSystem)));
             appendToOutput('Filesystem copied to clipboard');
