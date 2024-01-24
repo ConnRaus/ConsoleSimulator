@@ -937,7 +937,7 @@ async function loadPyodideInstance() {
     await pyodideInstance.loadPackage("micropip");
     const micropip = pyodideInstance.pyimport("micropip");
 
-    let packages = ['matplotlib', 'numpy', 'pandas', 'scipy', 'scikit-learn', 'seaborn', 'statsmodels', 'regex'];
+    let packages = ['matplotlib', 'numpy', 'pandas', 'scipy', 'scikit-learn', 'seaborn', 'statsmodels', 'regex', 'sympy'];
 
     // Store the old console.log function
     const oldLog = console.log;
@@ -1193,45 +1193,6 @@ async function pythonCommand(flags, args) {
     }
     runningProgram = false;
     inputElement.value = '';
-}
-
-
-function wasmCommand(flags, args) {
-    // first argument is the wasm file name
-    const wasm = args[0];
-
-    // if no name or name has / or name is not a file
-    if (!wasm) {
-        appendToOutput('wasm: no name for wasm file given');
-        return;
-    } else if (wasm.includes('/')) {
-        appendToOutput(`wasm: cannot run wasm file '${wasm}': No such file or directory`);
-        return;
-    } else if (currentDirectory.children[wasm] && currentDirectory.children[wasm].type !== 'file') {
-        appendToOutput(`wasm: cannot run wasm file '${wasm}': Is a directory`);
-        return;
-    }
-
-    // wasm files are already compiled and have no header, so don't check for data:application/wasm;base64,
-    if (currentDirectory.children[wasm]) {
-        const wasmString = currentDirectory.children[wasm].content;
-        const wasmBytes = new Uint8Array(wasmString.length);
-        for (let i = 0; i < wasmString.length; i++) {
-            wasmBytes[i] = wasmString.charCodeAt(i);
-        }
-
-        WebAssembly.instantiate(wasmBytes, { env }).then(result => {
-            const exports = result.instance.exports;
-            const main = exports.main;
-            const output = main();
-            appendToOutput(output);
-        }
-        ).catch(error => {
-            appendToOutput(`wasm: ${wasm}: ${error}`);
-        });
-    } else {
-        appendToOutput(`wasm: ${wasm}: No such file or directory`);
-    }
 }
 
 
